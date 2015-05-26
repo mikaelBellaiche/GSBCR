@@ -11,7 +11,7 @@ public class ModeleListePraticiensHesitants extends AbstractTableModel{
 	
 	private static final long serialVersionUID = 1L;
 	private List<Praticien> praticiensHesitants ;
-	private final String[] entetes = {"Numero","Nom","Ville", "Coefficient de notoriete", "Coefficient de confiance","Date de visite"} ;
+	private final String[] entetes = {"Numero","Nom","Prénom","Ville", "Coefficient de notoriete", "Coefficient de confiance","Date de visite"} ;
 	private ModeleAppliCR modele;
 	private Controleur controleur;
 	
@@ -67,6 +67,15 @@ public class ModeleListePraticiensHesitants extends AbstractTableModel{
 	 */
 	public String getNom(int row){
 		return praticiensHesitants.get(row).getNom();
+	}
+	
+	/** Obtenir le prénom du praticien
+	 * 
+	 * @param row L'indice de la ligne
+	 * @return Le prénom des praticiens
+	 */
+	public String getPrenom(int row){
+		return praticiensHesitants.get(row).getPrenom();
 	}
 	
 	/** Obtenir la ville des praticiens
@@ -125,12 +134,14 @@ public class ModeleListePraticiensHesitants extends AbstractTableModel{
 			case 1 :
 				return praticiensHesitants.get(row).getNom() ;
 			case 2 :
-				return praticiensHesitants.get(row).getVille() ;
+				return praticiensHesitants.get(row).getPrenom();
 			case 3 :
-				return praticiensHesitants.get(row).getCoefnotoriete();
+				return praticiensHesitants.get(row).getVille() ;
 			case 4 :
-				return praticiensHesitants.get(row).getCoefconfiance();
+				return praticiensHesitants.get(row).getCoefnotoriete();
 			case 5 :
+				return praticiensHesitants.get(row).getCoefconfiance();
+			case 6 :
 				return praticiensHesitants.get(row).getDateVisite() ;
 			default :
 				return null ;

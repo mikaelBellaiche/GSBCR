@@ -192,6 +192,8 @@ public class ModeleAppliCR {
 					 + "(SELECT RAPPORT_VISITE.PRA_NUM "
 					 + "FROM RAPPORT_VISITE "
 					 + "WHERE RAPPORT_VISITE.RAP_COEFCONFIANCE < 10)";
+		
+//		String query = "SELECT * from PRATICIEN inner join RAPPORT_VISITE on RAPPORT_VISITE.PRA_NUM= PRATICIEN.PRA_NUM where RAP_COEFCONFIANCE < 5;";
 
 		try{
 			co = ConnexionBD.getConnexion();
@@ -201,7 +203,7 @@ public class ModeleAppliCR {
 				
 
 				
-				int numero = resultat.getInt("PRATICIEN.PRA_NUM");
+				int numero = resultat.getInt("RAPPORT_VISITE.PRA_NUM");
 				String nom = resultat.getString("PRATICIEN.PRA_NOM") ;
 				String prenom = resultat.getString("PRATICIEN.PRA_PRENOM") ;
 				String ville = resultat.getString("PRATICIEN.PRA_VILLE");
